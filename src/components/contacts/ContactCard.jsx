@@ -1,4 +1,4 @@
-const Contact = ({ name, lastname, phone, email }) => {
+const ContactCard = ({ name, lastname, phone, email }) => {
 	return (
 		<div>
 			<div>{name}</div>
@@ -9,4 +9,4 @@ const Contact = ({ name, lastname, phone, email }) => {
 	);
 };
 
-export default Contact;
+export default ContactCard;

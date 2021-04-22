@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { useState } from 'react';
 import { addContactAction } from '../actions/index';
-import Contact from './Contact';
+import ContactList from './contacts/ContactList';
 
 const App = ({ addContact, contacts }) => {
 	const [formStates, setFormStates] = useState({
@@ -29,16 +29,6 @@ const App = ({ addContact, contacts }) => {
 			email: '',
 		});
 	};
-
-	const renderContacts = (contacts) =>
-		contacts.map((contact) => (
-			<Contact
-				name={contact.name}
-				lastname={contact.lastname}
-				email={contact.email}
-				phone={contact.phone}
-			/>
-		));
 
 	return (
 		<div>
@@ -74,8 +64,7 @@ const App = ({ addContact, contacts }) => {
 				</label>
 				<button>Add contact</button>
 			</form>
-			<h1>Contacts</h1>
-			{renderContacts(contacts)}
+			<ContactList />
 		</div>
 	);
 };
