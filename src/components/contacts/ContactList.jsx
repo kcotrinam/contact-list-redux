@@ -5,6 +5,7 @@ const ContactList = ({ contacts }) => {
 	const renderContacts = (contacts) =>
 		contacts.map((contact) => (
 			<ContactCard
+				key={contact.phone}
 				name={contact.name}
 				lastname={contact.lastname}
 				email={contact.email}
