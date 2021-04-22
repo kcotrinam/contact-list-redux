@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { useState } from 'react';
+import { addContactAction } from '../actions/index';
+import Contact from './Contact';
 
-const App = ({ ADD_CONTACT, contacts }) => {
+const App = ({ addContact, contacts }) => {
 	const [formStates, setFormStates] = useState({
 		name: '',
 		lastname: '',
@@ -17,10 +19,31 @@ const App = ({ ADD_CONTACT, contacts }) => {
 		}));
 	};
 
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		addContact(formStates);
+		setFormStates({
+			name: '',
+			lastname: '',
+			phone: '',
+			email: '',
+		});
+	};
+
+	const renderContacts = (contacts) =>
+		contacts.map((contact) => (
+			<Contact
+				name={contact.name}
+				lastname={contact.lastname}
+				email={contact.email}
+				phone={contact.phone}
+			/>
+		));
+
 	return (
 		<div>
-			<h1>To-Do list</h1>
-			<form action=''>
+			<h1>Contacts list</h1>
+			<form onSubmit={handleSubmit}>
 				<label>
 					Name
 					<input value={formStates.name} name='name' onChange={handleChange} />
@@ -49,16 +72,10 @@ const App = ({ ADD_CONTACT, contacts }) => {
 						onChange={handleChange}
 					/>
 				</label>
-				<button
-					onClick={() =>
-						ADD_CONTACT({
-							type: 'ADD_CONTACT',
-							payload: { name: 'kevin', lastname: 'cotrina' },
-						})
-					}>
-					Add contact
-				</button>
+				<button>Add contact</button>
 			</form>
+			<h1>Contacts</h1>
+			{renderContacts(contacts)}
 		</div>
 	);
 };
@@ -69,8 +86,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		ADD_CONTACT: (data) => {
-			dispatch({ type: 'ADD_CONTACT', payload: data });
+		addContact: (data) => {
+			dispatch(addContactAction(data));
 		},
 	};
 };
