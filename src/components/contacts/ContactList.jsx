@@ -6,6 +6,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
 
 const ContactList = ({ contacts }) => {
 	const renderContacts = (contacts) =>
@@ -20,8 +21,7 @@ const ContactList = ({ contacts }) => {
 		));
 
 	return (
-		<div>
-			<h1>ContactList</h1>
+		<div style={{ paddingTop: '1.5rem' }}>
 			<TableContainer component={Paper}>
 				<Table>
 					<TableHead>

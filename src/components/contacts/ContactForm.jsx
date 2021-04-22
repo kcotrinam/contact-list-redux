@@ -2,7 +2,6 @@ import { connect } from 'react-redux';
 import { useState } from 'react';
 import { addContactAction } from '../../actions/index';
 import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
 import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
@@ -76,6 +75,7 @@ const ContactForm = ({ addContact }) => {
 					color='primary'
 					component='button'
 					size='large'
+					type='submit'
 					variant='contained'>
 					Add contact
 				</Button>
