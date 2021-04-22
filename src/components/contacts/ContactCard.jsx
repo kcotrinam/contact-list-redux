@@ -1,11 +1,18 @@
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableRow from '@material-ui/core/TableRow';
+
 const ContactCard = ({ name, lastname, phone, email }) => {
 	return (
-		<div>
-			<div>{name}</div>
-			<div>{lastname}</div>
-			<div>{phone}</div>
-			<div>{email}</div>
-		</div>
+		<TableBody>
+			<TableRow>
+				<TableCell component='th' scope='row'>
+					{`${name} ${lastname}`}
+				</TableCell>
+				<TableCell>{phone}</TableCell>
+				<TableCell>{email}</TableCell>
+			</TableRow>
+		</TableBody>
 	);
 };
 
