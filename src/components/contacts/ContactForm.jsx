@@ -1,6 +1,11 @@
 import { connect } from 'react-redux';
 import { useState } from 'react';
 import { addContactAction } from '../../actions/index';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
+import InputLabel from '@material-ui/core/InputLabel';
+import Input from '@material-ui/core/Input';
+import Button from '@material-ui/core/Button';
 
 const ContactForm = ({ addContact }) => {
 	const [formStates, setFormStates] = useState({
@@ -31,35 +36,49 @@ const ContactForm = ({ addContact }) => {
 	return (
 		<div>
 			<form onSubmit={handleSubmit}>
-				<label>
-					Name
-					<input value={formStates.name} name='name' onChange={handleChange} />
-				</label>
-				<label>
-					Lastname
-					<input
+				<FormControl>
+					<InputLabel>Name</InputLabel>
+					<Input
+						aria-describedby='my-helper-text'
+						value={formStates.name}
+						name='name'
+						onChange={handleChange}
+					/>
+				</FormControl>
+				<FormControl>
+					<InputLabel>Lastname</InputLabel>
+					<Input
+						aria-describedby='my-helper-text'
 						value={formStates.lastname}
 						name='lastname'
 						onChange={handleChange}
 					/>
-				</label>
-				<label>
-					phone
-					<input
+				</FormControl>
+				<FormControl>
+					<InputLabel>Phone</InputLabel>
+					<Input
+						aria-describedby='my-helper-text'
 						value={formStates.phone}
 						name='phone'
 						onChange={handleChange}
 					/>
-				</label>
-				<label>
-					E-mail
-					<input
+				</FormControl>
+				<FormControl>
+					<InputLabel>E-mail</InputLabel>
+					<Input
+						aria-describedby='my-helper-text'
 						value={formStates.email}
 						name='email'
 						onChange={handleChange}
 					/>
-				</label>
-				<button>Add contact</button>
+				</FormControl>
+				<Button
+					color='primary'
+					component='button'
+					size='large'
+					variant='contained'>
+					Add contact
+				</Button>
 			</form>
 		</div>
 	);
